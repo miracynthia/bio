@@ -179,7 +179,12 @@
         </div>
         <span class="arr-down" id="arrDown">↓</span>
       </div>
-      <div class="cupons-list" id="cuponsList"></div>
+      <div class="cupons-list" id="cuponsList">
+        <a href="https://www.nutrify.com.br/" target="_blank" class="cupon-item">
+          <span class="cupon-brand">Nutrify</span>
+          <span class="cupon-code">TE903</span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -255,7 +260,6 @@
   // ---- Renderiza site ----
   function renderSite() {
     const data = getData();
-
     const linkEl = document.getElementById("link-acompanhamento");
     if (data.formsLink) {
       linkEl.href = data.formsLink;
@@ -263,21 +267,6 @@
     } else {
       linkEl.href = "#";
       linkEl.removeAttribute("target");
-    }
-
-    const lista = document.getElementById("cuponsList");
-    lista.innerHTML = "";
-    if (data.cupons.length === 0) {
-      lista.innerHTML = '<div style="padding:12px 4px;font-size:10px;color:rgba(240,240,240,0.2);letter-spacing:2px;">Nenhum cupom cadastrado ainda</div>';
-    } else {
-      data.cupons.forEach(c => {
-        const a = document.createElement("a");
-        a.href = c.link || "#";
-        if (c.link) a.target = "_blank";
-        a.className = "cupon-item";
-        a.innerHTML = `<span class="cupon-brand">${c.marca}</span><span class="cupon-code">${c.codigo}</span>`;
-        lista.appendChild(a);
-      });
     }
   }
 
