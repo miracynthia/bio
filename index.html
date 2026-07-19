@@ -259,15 +259,7 @@
 
   // ---- Renderiza site ----
   function renderSite() {
-    const data = getData();
-    const linkEl = document.getElementById("link-acompanhamento");
-    if (data.formsLink) {
-      linkEl.href = data.formsLink;
-      linkEl.target = "_blank";
-    } else {
-      linkEl.href = "#";
-      linkEl.removeAttribute("target");
-    }
+    // link de acompanhamento fixo no HTML
   }
 
   // ---- Admin ----
